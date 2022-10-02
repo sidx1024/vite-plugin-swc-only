@@ -17,7 +17,6 @@
         "./*": "./*"
     },
     "repository": "github:natrim/vite-plugin-swc-only",
-    "packageManager": "pnpm@7.3.0",
     "keywords": [
         "vite",
         "vite-plugin",
@@ -31,13 +30,12 @@
         "minify"
     ],
     "scripts": {
-        "prepack": "pnpm build",
-        "build": "pnpm tsc && pnpm build:cjs",
-        "build:cjs": "node scripts/prebuild.js && pnpm tsc cjs/index.ts --module commonjs && node scripts/postbuild.js",
+        "prepack": "npm run build",
+        "build": "tsc && npm run build:cjs",
+        "build:cjs": "node scripts/prebuild.js && tsc cjs/index.ts --module commonjs && node scripts/postbuild.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "prettier": "pnpm prettier-ci --write",
-        "prettier-ci": "prettier --check '**/*.{js,ts,json,md}'",
-        "preinstall": "npx only-allow pnpm"
+        "prettier": "npm prettier-ci --write",
+        "prettier-ci": "prettier --check '**/*.{js,ts,json,md}'"
     },
     "prettier": {
         "trailingComma": "all"
